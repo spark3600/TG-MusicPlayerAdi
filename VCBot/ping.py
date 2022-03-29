@@ -56,4 +56,4 @@ async def help(client, m: Message):
 
 @Client.on_message(contact_filter & filters.command(['repo', 'source'], prefixes=f"{HNDLR}"))
 async def source(client, m: Message):
-   await m.reply("Find us at: [illuminati124/TG-Musicplayer](https://github.com/illuminati124/TG-MusicPlayer)")
+   await m.reply("Find us at: [Near](https://telegram.dog/near44)")
