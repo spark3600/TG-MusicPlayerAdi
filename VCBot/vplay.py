@@ -59,13 +59,13 @@ async def vplay(client, m: Message):
          dl = await replied.download()
          link = replied.link
          if len(m.command) < 2:
-            Q = 720
+            Q = 360
          else:
             pq = m.text.split(None, 1)[1]
             if pq == "720" or "480" or "360":
                Q = int(pq)
             else:
-               Q = 720
+               Q = 360
                await huehue.edit("`Only 720, 480, 360 Allowed` \n`Now Streaming in 720p`")
          try:
             if replied.video:
@@ -89,13 +89,13 @@ async def vplay(client, m: Message):
                chat_id,
                AudioVideoPiped(
                   dl,
-                  HighQualityAudio(),
+                  MediumQualityAudio(),
                   hmmm
                ),
                stream_type=StreamType().pulse_stream,
             )
             add_to_queue(chat_id, songname, dl, link, "Video", Q)
-            await huehue.edit(f"**Started Playing Video ▶** \n**🎧 SONG** : [{songname}]({link}) \n**💬 CHAT** : `{chat_id}`", disable_web_page_preview=True)
+            await huehue.edit(f"**Started Playing Video ▶** \n**🎧 SONG** : {songname} \n**💬 CHAT** : `{chat_id}`", disable_web_page_preview=True)
       else:
          if len(m.command) < 2:
             await m.reply("`Reply to an Audio File or give something to Search`")
@@ -103,8 +103,8 @@ async def vplay(client, m: Message):
             huehue = await m.reply("`Searching...`")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
-            Q = 720
-            hmmm = HighQualityVideo()
+            Q = 360
+            hmmm = LowQualityVideo()
             if search==0:
                await huehue.edit("`Found Nothing for the Given Query`")
             else:
@@ -123,13 +123,13 @@ async def vplay(client, m: Message):
                            chat_id,
                            AudioVideoPiped(
                               ytlink,
-                              HighQualityAudio(),
+                              MediumQualityAudio(),
                               hmmm
                            ),
                            stream_type=StreamType().pulse_stream,
                         )
                         add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
-                        await huehue.edit(f"**Started Playing Video ▶** \n**🎧 SONG** : [{songname}]({url}) \n**💬 CHAT** : `{chat_id}`", disable_web_page_preview=True)
+                        await huehue.edit(f"**Started Playing Video ▶** \n**🎧 SONG** : {songname} \n**💬 CHAT** : `{chat_id}`", disable_web_page_preview=True)
                      except Exception as ep:
                         await huehue.edit(f"`{ep}`")
             
@@ -140,8 +140,8 @@ async def vplay(client, m: Message):
             huehue = await m.reply("`Searching...`")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
-            Q = 720
-            hmmm = HighQualityVideo()
+            Q = 360
+            hmmm = LowQualityVideo()
             if search==0:
                await huehue.edit("`Found Nothing for the Given Query`")
             else:
@@ -160,13 +160,13 @@ async def vplay(client, m: Message):
                            chat_id,
                            AudioVideoPiped(
                               ytlink,
-                              HighQualityAudio(),
+                              MediumQualityAudio(),
                               hmmm
                            ),
                            stream_type=StreamType().pulse_stream,
                         )
                         add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
-                        await huehue.edit(f"**Started Playing Video ▶** \n**🎧 SONG** : [{songname}]({url}) \n**💬 CHAT** : `{chat_id}`", disable_web_page_preview=True)
+                        await huehue.edit(f"**Started Playing Video ▶** \n**🎧 SONG** : {songname} \n**💬 CHAT** : `{chat_id}`", disable_web_page_preview=True)
                      except Exception as ep:
                         await huehue.edit(f"`{ep}`")
 
@@ -180,7 +180,7 @@ async def vstream(client, m: Message):
    else:
       if len(m.command)==2:
          link = m.text.split(None, 1)[1]
-         Q = 720
+         Q = 360
          huehue = await m.reply("`Trying to Stream 💭`")
       elif len(m.command)==3:
          op = m.text.split(None, 1)[1]
@@ -189,7 +189,7 @@ async def vstream(client, m: Message):
          if quality == "720" or "480" or "360":
             Q = int(quality)
          else:
-            Q = 720
+            Q = 360
             await m.reply("`Only 720, 480, 360 Allowed` \n`Now Streaming in 720p`")
          huehue = await m.reply("`Trying to Stream 💭`")
       else:
@@ -222,7 +222,7 @@ async def vstream(client, m: Message):
                   chat_id,
                   AudioVideoPiped(
                      livelink,
-                     HighQualityAudio(),
+                     MediumQualityAudio(),
                      hmmm
                   ),
                   stream_type=StreamType().pulse_stream,
