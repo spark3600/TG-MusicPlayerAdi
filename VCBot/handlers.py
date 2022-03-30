@@ -40,7 +40,7 @@ async def skip_current_song(chat_id):
                chat_id,
                AudioVideoPiped(
                   url,
-                  MediumQualityAudio(),
+                  LowQualityAudio(),
                   hm
                )
             ) 
