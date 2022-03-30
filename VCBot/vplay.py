@@ -89,7 +89,7 @@ async def vplay(client, m: Message):
                chat_id,
                AudioVideoPiped(
                   dl,
-                  MediumQualityAudio(),
+                  LowQualityAudio(),
                   hmmm
                ),
                stream_type=StreamType().pulse_stream,
@@ -123,7 +123,7 @@ async def vplay(client, m: Message):
                            chat_id,
                            AudioVideoPiped(
                               ytlink,
-                              MediumQualityAudio(),
+                              LowQualityAudio(),
                               hmmm
                            ),
                            stream_type=StreamType().pulse_stream,
@@ -222,7 +222,7 @@ async def vstream(client, m: Message):
                   chat_id,
                   AudioVideoPiped(
                      livelink,
-                     MediumQualityAudio(),
+                     LowQualityAudio(),
                      hmmm
                   ),
                   stream_type=StreamType().pulse_stream,
