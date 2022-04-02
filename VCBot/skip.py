@@ -13,11 +13,11 @@ async def skip(client, m: Message):
       if op==0:
          await m.reply("`Nothing Is Playing`")
       elif op==1:
-         await m.reply("`Queue is Empty, Leaving Voice Chat...`")
+         await m.reply("`Koi gana nahi baja raha.. mai jaa rahi yaha se..🥺🥺`")
       elif op==2:
          await m.reply(f"**Some Error Occurred** \n`Clearing the Queues and Leaving the Voice Chat...`")
       else:
-         await m.reply(f"**Skipped ⏭** \n**🎧 Now Playing** - [{op[0]}]({op[1]}) | `{op[2]}`", disable_web_page_preview=True)
+         await m.reply(f"**⏭|Skipped** \n**🎧|Now Playing** - [{op[0]}]({op[1]}) | `{op[2]}`", disable_web_page_preview=True)
    else:
       skip = m.text.split(None, 1)[1]
       OP = "**Removed the following songs from Queue:-**"
@@ -42,7 +42,7 @@ async def stop(client, m: Message):
       try:
          await call_py.leave_group_call(chat_id)
          clear_queue(chat_id)
-         await m.reply("**Stopped Streaming ⏹️**")
+         await m.reply("**⏹️|Stopped Streaming**")
       except Exception as e:
          await m.reply(f"**ERROR** \n`{e}`")
    else:
@@ -54,7 +54,7 @@ async def pause(client, m: Message):
    if chat_id in QUEUE:
       try:
          await call_py.pause_stream(chat_id)
-         await m.reply("**Paused Streaming ⏸️**")
+         await m.reply("**⏸️|Paused Streaming**")
       except Exception as e:
          await m.reply(f"**ERROR** \n`{e}`")
    else:
@@ -66,7 +66,7 @@ async def resume(client, m: Message):
    if chat_id in QUEUE:
       try:
          await call_py.resume_stream(chat_id)
-         await m.reply("**Resumed Streaming ▶**")
+         await m.reply("**▶|Resumed Streaming**")
       except Exception as e:
          await m.reply(f"**ERROR** \n`{e}`")
    else:
